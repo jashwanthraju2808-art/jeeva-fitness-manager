@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Gold lotus flower favicon -->
+  <!-- Center petal -->
+  <path d="M32 38 C32 38 28 30 28 24 C28 18 32 14 32 14 C32 14 36 18 36 24 C36 30 32 38 32 38Z" fill="#c4975a"/>
+  <!-- Left petal -->
+  <path d="M32 38 C32 38 22 32 20 26 C18 20 22 14 22 14 C22 14 28 18 30 24 C32 30 32 38 32 38Z" fill="#c4975a" opacity="0.85"/>
+  <!-- Right petal -->
+  <path d="M32 38 C32 38 42 32 44 26 C46 20 42 14 42 14 C42 14 36 18 34 24 C32 30 32 38 32 38Z" fill="#c4975a" opacity="0.85"/>
+  <!-- Far left petal -->
+  <path d="M32 38 C32 38 18 35 14 28 C10 22 14 14 14 14 C14 14 22 16 26 22 C30 28 32 38 32 38Z" fill="#c4975a" opacity="0.6"/>
+  <!-- Far right petal -->
+  <path d="M32 38 C32 38 46 35 50 28 C54 22 50 14 50 14 C50 14 42 16 38 22 C34 28 32 38 32 38Z" fill="#c4975a" opacity="0.6"/>
+  <!-- Stem dot -->
+  <circle cx="32" cy="44" r="2.5" fill="#c4975a"/>
+  <circle cx="32" cy="50" r="1.5" fill="#c4975a" opacity="0.7"/>
+</svg>

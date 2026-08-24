@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.env
+venv/
+.venv/
+*.sqlite3
+
+# Node / React
+node_modules/
+dist/
+frontend/dist/
+.DS_Store
+
+# Alembic local override
+alembic.ini.local
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Logs
+*.log
