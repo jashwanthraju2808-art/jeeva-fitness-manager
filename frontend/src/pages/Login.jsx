@@ -41,7 +41,7 @@ export default function Login() {
       localStorage.setItem("token",    access_token);
       localStorage.setItem("username", uname);
 
-      // Hydrate AuthContext immediately â€” avoids the blink/stuck loading screen.
+      // Hydrate AuthContext immediately — avoids the blink/stuck loading screen.
       // setLoading(false) must be called BEFORE navigate() so AuthGuard
       // never enters the loading state when arriving at the dashboard.
       setUser({ id: null, username: uname, role: role || "staff" });
@@ -103,7 +103,6 @@ export default function Login() {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder="admin"
               autoComplete="username"
               autoFocus
               required
@@ -118,7 +117,6 @@ export default function Login() {
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
                 autoComplete="current-password"
                 required
               />
@@ -152,12 +150,10 @@ export default function Login() {
             className="btn btn-primary login-submit"
             disabled={loading}
           >
-            {loading ? "Signing inâ€¦" : "Sign In"}
+            {loading ? "Signing in…" : "Sign In"}
           </button>
 
         </form>
-
-        <p className="login-footer">STRENGTH Â· ENDURANCE Â· FITNESS</p>
       </div>
     </div>
   );
