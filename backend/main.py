@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 
-from app.database.init_db import *  # noqa: F401, F403 — runs create_all + seeds on startup
+from app.database.init_db import *  # noqa: F401, F403 â€” runs create_all + seeds on startup
 from app.core.auth import get_current_user
 from app.routers.auth import router as auth_router
 from app.routers.members import router as member_router
@@ -20,17 +20,18 @@ from app.routers.import_data import router as import_router
 from app.routers.cron import router as cron_router
 
 app = FastAPI(
-    title="Jeeva Fitness — Gym Management API",
+    title="Jeeva Fitness â€” Gym Management API",
     version="2.0.0",
-    description="Jeeva Fitness — Gym Management System",
+    description="Jeeva Fitness â€” Gym Management System",
 )
 
-# ── CORS ───────────────────────────────────────────────────────
+# â”€â”€ CORS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://jeeva-fitness.onrender.com",          # Jeeva Fitness frontend
+        "https://jeeva-fitness.onrender.com",
+          "https://jeeva-fitness-web.onrender.com",          # Jeeva Fitness frontend
         "https://jeeva-fitness-manager.onrender.com",  # alternate
     ],
     allow_credentials=True,
@@ -38,13 +39,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ── Public routes (no auth needed) ────────────────────────────
+# â”€â”€ Public routes (no auth needed) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 app.include_router(auth_router)
 
-# Cron job uses its own CRON_SECRET header auth — not JWT
+# Cron job uses its own CRON_SECRET header auth â€” not JWT
 app.include_router(cron_router)
 
-# ── Protected routes (JWT required globally) ──────────────────
+# â”€â”€ Protected routes (JWT required globally) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 protected = {"dependencies": [Depends(get_current_user)]}
 
 app.include_router(member_router,       **protected)
@@ -61,7 +62,7 @@ app.include_router(users_router)
 app.include_router(audit_logs_router)
 app.include_router(import_router)
 
-# ── Static uploads (logos etc.) ───────────────────────────────
+# â”€â”€ Static uploads (logos etc.) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 uploads_dir = Path(__file__).parent / "uploads"
 uploads_dir.mkdir(exist_ok=True)
 app.mount("/uploads", StaticFiles(directory=str(uploads_dir)), name="uploads")
@@ -69,7 +70,7 @@ app.mount("/uploads", StaticFiles(directory=str(uploads_dir)), name="uploads")
 
 @app.get("/", tags=["Health"])
 def home():
-    return {"message": "Welcome to Jeeva Fitness — Gym Management API"}
+    return {"message": "Welcome to Jeeva Fitness â€” Gym Management API"}
 
 
 @app.get("/health", tags=["Health"])

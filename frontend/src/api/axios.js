@@ -1,7 +1,7 @@
-import axios from "axios";
+﻿import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://jeeva-fitness-api.onrender.com",  // Jeeva Fitness backend
+  baseURL: "https://jeeva-fitness-manager.onrender.com",  // Jeeva Fitness backend
   timeout: 30000,
 });
 
